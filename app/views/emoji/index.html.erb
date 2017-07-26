@@ -10,11 +10,22 @@
 
 <% unless @password.nil? %>
   <div class="content has-text-centered is-large">
-    <div>
+    <div class="box">
       <span id="passmoji"><%= @password %></span>
     </div>
     <button class="clipboard-btn button is-primary" data-clipboard-action="copy" data-clipboard-target="#passmoji">
       <span class="icon">📋</span>&nbsp;&nbsp;&nbsp;Copy passmoji to clipboard
     </button>
+  </div>
+  <div class="content has-text-centered is-small">
+    <div class="columns">
+      <div class="column is-one-third">&nbsp;</div>
+      <div class="column">
+        <div class="notification is-warning">
+          Please be aware that <b>not all services support the use of emojis as passwords - use with caution</b>. 
+        </div>
+      </div>
+      <div class="column is-one-third">&nbsp;</div>
+    </div>
   </div>
 <% end %>
