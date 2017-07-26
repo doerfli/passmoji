@@ -1,7 +1,7 @@
 class EmojiController < ApplicationController
 
   def index
-    allowed_characters = Emoji.all
+    allowed_characters = Emoji.all.select{ |e| ! e.raw.nil? }
     @password = ''
     len = (params['length'] || '8').to_i
     (0...len).each { |i|

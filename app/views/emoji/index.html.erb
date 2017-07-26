@@ -1,8 +1,9 @@
 
 <div class="content has-text-centered is-large">
-  <span id="passmoji"><%= @password %></span>
+  <div>
+    <span id="passmoji"><%= @password %></span>
+  </div>
+  <button class="clipboard-btn button is-primary" data-clipboard-action="copy" data-clipboard-target="#passmoji">
+    <span class="icon">📋</span>&nbsp;&nbsp;&nbsp;Copy passmoji to clipboard
+  </button>
 </div>
-
-<button class="clipboard-btn button is-success" data-clipboard-action="copy" data-clipboard-target="#passmoji">
-    Copy to clipboard
-</button>
