@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Passmoji</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <section class="hero  is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to Passmoji!
+          </h1>
+          <h2 class="subtitle">
+            Passwords for the next generation
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

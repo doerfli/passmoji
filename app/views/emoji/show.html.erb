@@ -1,0 +1,8 @@
+<div>
+  <% Emoji.all.each{ |e| %>
+    <div>
+      <%= e.raw %>
+      <%= e.category %>
+    </div>
+  <% } %>
+</div>
