@@ -43,6 +43,7 @@ GEM
     builder (3.2.3)
     bulma-rails (0.4.3)
       sass (~> 3.2)
+    clipboard-rails (1.7.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -159,6 +160,7 @@ PLATFORMS
 
 DEPENDENCIES
   bulma-rails (~> 0.4.3)
+  clipboard-rails (~> 1.7, >= 1.7.1)
   coffee-rails (~> 4.2)
   gemoji (~> 3.0)
   jbuilder (~> 2.5)

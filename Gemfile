@@ -34,8 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'gemoji', '~> 3.0'
-
 gem "bulma-rails", "~> 0.4.3"
+gem 'clipboard-rails', '~> 1.7', '>= 1.7.1'
 
 #group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

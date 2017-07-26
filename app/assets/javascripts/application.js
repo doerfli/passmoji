@@ -12,4 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require clipboard
 //= require_tree .
+
+document.addEventListener('DOMContentLoaded', function(){
+    var clipboard = new Clipboard('.clipboard-btn');
+}, false);

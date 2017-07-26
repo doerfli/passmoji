@@ -1,8 +1,8 @@
 
 <div class="content has-text-centered is-large">
-  <% @password.each{ |c| %>
-    <span>
-      <%= c %>
-    </span>
-  <% } %>
+  <span id="passmoji"><%= @password %></span>
 </div>
+
+<button class="clipboard-btn button is-success" data-clipboard-action="copy" data-clipboard-target="#passmoji">
+    Copy to clipboard
+</button>
