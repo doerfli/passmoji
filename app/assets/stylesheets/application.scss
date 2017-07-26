@@ -13,5 +13,14 @@
  *= require_tree .
  *= require_self
  */
- 
+
 @import "bulma";
+
+.inlineinput {
+  width: auto;
+  vertical-align: inherit;
+}
+
+.valigninherit {
+  vertical-align: inherit;
+}

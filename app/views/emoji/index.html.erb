@@ -1,9 +1,20 @@
-
 <div class="content has-text-centered is-large">
-  <div>
-    <span id="passmoji"><%= @password %></span>
-  </div>
-  <button class="clipboard-btn button is-primary" data-clipboard-action="copy" data-clipboard-target="#passmoji">
-    <span class="icon">📋</span>&nbsp;&nbsp;&nbsp;Copy passmoji to clipboard
-  </button>
+  <%= form_tag("/emoji", :method => :get) do %>
+    <div>
+      Generate a new passmoji with length
+      <input class="input inlineinput" value="13" name="length" size="4" />
+      <button class="button is-primary valigninherit">Go</button>
+    </div>
+  <% end %>
 </div>
+
+<% unless @password.nil? %>
+  <div class="content has-text-centered is-large">
+    <div>
+      <span id="passmoji"><%= @password %></span>
+    </div>
+    <button class="clipboard-btn button is-primary" data-clipboard-action="copy" data-clipboard-target="#passmoji">
+      <span class="icon">📋</span>&nbsp;&nbsp;&nbsp;Copy passmoji to clipboard
+    </button>
+  </div>
+<% end %>
