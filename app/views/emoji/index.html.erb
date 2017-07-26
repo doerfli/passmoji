@@ -2,8 +2,9 @@
   <%= form_tag("/emoji", :method => :get) do %>
     <div>
       Generate a new passmoji with length
-      <input class="input inlineinput" value="13" name="length" size="4" />
-      <button class="button is-primary valigninherit">Go</button>
+      <input class="input inlineinput" value="13" name="length" size="3" />
+      &nbsp;
+      <button class="button is-primary valigninherit">Go!</button>
     </div>
   <% end %>
 </div>
@@ -23,7 +24,7 @@
       <div class="column">
         <div class="notification is-warning">
           A word of <b>warning</b>: not all services support the use of emojis (or unicode characters in general)
-          as passwords so please use the passmoji with caution. 
+          as passwords. Please use the passmoji with caution.
         </div>
       </div>
       <div class="column is-one-third">&nbsp;</div>
