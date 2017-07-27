@@ -7,7 +7,9 @@ class EmojiController < ApplicationController
       @password = ''
       len = (params['length'] || '8').to_i
       (0...len).each { |i|
-          @password += allowed_characters.sample(1).first.raw
+          t = allowed_characters.sample(1).first
+          @password += t.raw.encode('utf-8')
+          logger.info t.unicode_version
       }
     end
     logger.info @password

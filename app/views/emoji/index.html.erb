@@ -12,7 +12,7 @@
 <% unless @password.nil? %>
   <div class="content has-text-centered is-large">
     <div class="box">
-      <span id="passmoji"><%= @password %></span>
+      <span id="passmoji" class="emoji"><%= @password %></span>
     </div>
     <button class="clipboard-btn button is-primary" data-clipboard-action="copy" data-clipboard-target="#passmoji">
       <span class="icon">📋</span>&nbsp;&nbsp;&nbsp;Copy passmoji to clipboard
