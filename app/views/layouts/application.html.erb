@@ -16,14 +16,14 @@
             🤔&nbsp;😲&nbsp;😄
           </a>
 
-          <div class="navbar-burger burger" data-target="navMenuExample">
+          <div class="navbar-burger burger" id="nav-toggle" data-target="navMenuExample">
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
 
-        <div class="navbar-menu">
+        <div class="navbar-menu" id="nav-menu">
           <div class="navbar-end">
             <a class="navbar-item" href="/faq">
               What's this?
@@ -31,7 +31,7 @@
             <a class="navbar-item" href="/password">
               What's a good password?
             </a>
-          </div>  
+          </div>
         </div>
 
       </nav>
@@ -41,7 +41,7 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <h1 class="title">
-            Welcome to Passmoji! 🤔&nbsp;😲&nbsp;😄
+            Welcome to Passmoji! <a href="/">🤔&nbsp;😲&nbsp;😄</a>
           </h1>
           <h2 class="subtitle">
             The cute password generator.
@@ -75,6 +75,15 @@
       ga('create', 'UA-103397606-1', 'auto');
       ga('send', 'pageview');
 
+    </script>
+
+    <script type="text/javascript">
+      // hamburger menu open/close
+      document.getElementById("nav-toggle").addEventListener ("click", toggleNav);
+      function toggleNav() {
+              var nav = document.getElementById("nav-menu");
+              nav.classList.toggle("is-active");
+      }
     </script>
 
   </body>
