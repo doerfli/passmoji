@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>passmoji</title>
     <%= csrf_meta_tags %>
 
@@ -8,13 +9,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div class="container">
+  <body class="layout-documentation page-layout" style="zoom: 1;">
       <nav class="navbar">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
             🤔&nbsp;😲&nbsp;😄
           </a>
+
+          <div class="navbar-burger burger" data-target="navMenuExample">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
 
         <div class="navbar-end">
