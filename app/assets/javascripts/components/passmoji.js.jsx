@@ -20,7 +20,7 @@ class Passmoji extends React.Component {
         <div className="content has-text-centered is-large">
           <div className="box">
             {this.props.passmoji_imgs.map(function(img, i) {
-                return <img key={i} src={img} className="passmoji_img"/>
+                return (<img key={i} src={img} className="passmoji_img"/>);
             }.bind(this))}
           </div>
           <span id="passmoji" className="is-hidden">{this.props.passmoji}</span>
