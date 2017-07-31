@@ -4,7 +4,8 @@ class MojiGenerator extends React.Component {
     super(props);
     this.state = {
         length: 13,
-        passmoji: ""
+        passmoji: "",
+        passmoji_imgs: []
     };
   }
 
@@ -21,43 +22,22 @@ class MojiGenerator extends React.Component {
         return response.json();
       }).then(function(json) {
         // console.log('parsed json', json);
-        that.setPassmoji(json.passmoji);
+        that.setPassmoji(json.passmoji, json.passmoji_imgs);
       }).catch(function(ex) {
         console.log('parsing failed', ex);
       });
   }
 
-  setPassmoji = (passmoji) => {
+  setPassmoji = (passmoji, passmoji_imgs) => {
     console.log(passmoji);
-    this.setState({passmoji: passmoji});
+    this.setState({passmoji: passmoji, passmoji_imgs: passmoji_imgs});
   }
 
   render() {
     let passmoji;
 
     if (this.state.passmoji.length > 0) {
-      passmoji = <div>
-        <div className="content has-text-centered is-large">
-          <div className="box">
-            <span id="passmoji" className="emoji">{this.state.passmoji}</span>
-          </div>
-          <button className="clipboard-btn button is-primary" data-clipboard-action="copy" data-clipboard-target="#passmoji">
-            <span className="icon">📋</span>&nbsp;&nbsp;&nbsp;Copy passmoji to clipboard
-          </button>
-        </div>
-        <div className="content has-text-centered is-small">
-          <div className="columns">
-            <div className="column is-one-third">&nbsp;</div>
-            <div className="column">
-              <div className="notification is-warning">
-                A word of <b>warning</b>: not all services support the use of emojis (or unicode characters in general)
-                as passwords. Please use the passmoji with caution.
-              </div>
-            </div>
-            <div className="column is-one-third">&nbsp;</div>
-          </div>
-        </div>
-      </div>;
+      passmoji = <Passmoji passmoji={this.state.passmoji} passmoji_imgs={this.state.passmoji_imgs}/>;
     }
 
     return (
