@@ -17,7 +17,7 @@ class EmojiController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => {
-          passmoji: @password.force_encoding('UTF-8')
+          passmoji: @password
         }
       }
     end
