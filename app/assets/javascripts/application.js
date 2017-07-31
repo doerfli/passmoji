@@ -13,6 +13,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require clipboard
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 document.addEventListener('DOMContentLoaded', function(){

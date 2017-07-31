@@ -13,6 +13,14 @@ class EmojiController < ApplicationController
       }
     end
     logger.info @password
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => {
+          passmoji: @password.force_encoding('UTF-8')
+        }
+      }
+    end
   end
 
   def show

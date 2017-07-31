@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'gemoji', '~> 3.0'
 gem "bulma-rails", "~> 0.4.3"
 gem 'clipboard-rails', '~> 1.7', '>= 1.7.1'
+gem 'react-rails', '~> 2.2', '>= 2.2.1'
+gem 'fetch-rails', '~> 2.0', '>= 2.0.1'
 
 #group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

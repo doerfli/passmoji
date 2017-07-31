@@ -1,36 +1,5 @@
-<div class="content has-text-centered is-large">
-  <%= form_tag("/emoji", :method => :get) do %>
-    <div>
-      Generate a new passmoji with length
-      <input class="input inlineinput" value="13" name="length" size="3" />
-      &nbsp;
-      <button class="button is-primary valigninherit">Go!</button>
-    </div>
-  <% end %>
-</div>
+<%= react_component 'MojiGenerator' %>
 
-<% unless @password.nil? %>
-  <div class="content has-text-centered is-large">
-    <div class="box">
-      <span id="passmoji" class="emoji"><%= @password %></span>
-    </div>
-    <button class="clipboard-btn button is-primary" data-clipboard-action="copy" data-clipboard-target="#passmoji">
-      <span class="icon">📋</span>&nbsp;&nbsp;&nbsp;Copy passmoji to clipboard
-    </button>
-  </div>
-  <div class="content has-text-centered is-small">
-    <div class="columns">
-      <div class="column is-one-third">&nbsp;</div>
-      <div class="column">
-        <div class="notification is-warning">
-          A word of <b>warning</b>: not all services support the use of emojis (or unicode characters in general)
-          as passwords. Please use the passmoji with caution.
-        </div>
-      </div>
-      <div class="column is-one-third">&nbsp;</div>
-    </div>
-  </div>
-<% end %>
 
 <div class="height100">
   &nbsp;

@@ -39,6 +39,10 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bindex (0.5.0)
     builder (3.2.3)
     bulma-rails (0.4.3)
@@ -52,8 +56,11 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     erubi (1.6.1)
     execjs (2.7.0)
+    fetch-rails (2.0.1)
+      rails (>= 4.1.0)
     ffi (1.9.18)
     gemoji (3.0.0)
     globalid (0.4.0)
@@ -112,6 +119,12 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    react-rails (2.2.1)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     ruby_dep (1.5.0)
     sass (3.5.1)
       sass-listen (~> 4.0.0)
@@ -162,12 +175,14 @@ DEPENDENCIES
   bulma-rails (~> 0.4.3)
   clipboard-rails (~> 1.7, >= 1.7.1)
   coffee-rails (~> 4.2)
+  fetch-rails (~> 2.0, >= 2.0.1)
   gemoji (~> 3.0)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.7)
   rails (~> 5.1.2)
+  react-rails (~> 2.2, >= 2.2.1)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
