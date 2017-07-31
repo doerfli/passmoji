@@ -4,15 +4,17 @@ class EmojiController < ApplicationController
     @passmoji = nil
     @passmoji_imgs = []
     unless params['length'].nil?
-      allowed_characters = Emoji.all.select{ |e| ! e.raw.nil? }
+      allowed_characters = Gemojione::Index.new.all.values
+      # logger.info allowed_characters
       @passmoji = ''
       @passmoji_imgs = []
       len = (params['length'] || '8').to_i
+      index =
       (0...len).each { |i|
           t = allowed_characters.sample(1).first
-          @passmoji += t.raw.encode('utf-8')
-          @passmoji_imgs << view_context.image_path("emoji/#{t.image_filename}")
-          logger.info t.unicode_version
+          logger.info t
+          @passmoji += t['moji'].encode('utf-8')
+          @passmoji_imgs <<  view_context.image_path("emoji/png/#{t['unicode']}.png")
       }
     end
     logger.info @passmoji
