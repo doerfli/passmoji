@@ -14,7 +14,7 @@
       <nav class="navbar">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            🤔&nbsp;😲&nbsp;😄
+            <img src="<%= image_path("emoji/png/#{@moji_index.find_by_moji('🤔')['unicode']}.png") %>" />&nbsp;<img src="<%= image_path("emoji/png/#{@moji_index.find_by_moji('😲')['unicode']}.png") %>" />&nbsp;<img src="<%= image_path("emoji/png/#{@moji_index.find_by_moji('😄')['unicode']}.png") %>" />
           </a>
 
           <div class="navbar-burger burger" id="nav-toggle" data-target="navMenuExample">
@@ -42,7 +42,7 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <h1 class="title">
-            Welcome to Passmoji! <a href="/">🤔&nbsp;😲&nbsp;😄</a>
+            Welcome to Passmoji! <a href="/"><img src="<%= image_path("emoji/png/#{@moji_index.find_by_moji('🤔')['unicode']}.png") %>" />&nbsp;<img src="<%= image_path("emoji/png/#{@moji_index.find_by_moji('😲')['unicode']}.png") %>" />&nbsp;<img src="<%= image_path("emoji/png/#{@moji_index.find_by_moji('😄')['unicode']}.png") %>" /></a>
           </h1>
           <h2 class="subtitle">
             The cute password generator.

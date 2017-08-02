@@ -4,8 +4,7 @@ class EmojiController < ApplicationController
     @passmoji = nil
     @passmoji_imgs = []
     unless params['length'].nil?
-      allowed_characters = Gemojione::Index.new.all.values
-      # logger.info allowed_characters
+      allowed_characters = @moji_index.all.values
       @passmoji = ''
       @passmoji_imgs = []
       len = (params['length'] || '8').to_i
