@@ -22,7 +22,7 @@ class MojiGenerator extends React.Component {
         return response.json();
       }).then(function(json) {
         // console.log('parsed json', json);
-        that.setPassmoji(json.passmoji, json.passmoji_imgs);
+        that.setPassmoji(json.chars, json.imgs);
       }).catch(function(ex) {
         console.log('parsing failed', ex);
       });
