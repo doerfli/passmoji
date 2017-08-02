@@ -10,18 +10,17 @@ class EmojiController < ApplicationController
       len = (params['length'] || '8').to_i
       index =
       (0...len).each { |i|
-          t = allowed_characters.sample(1).first
-          logger.info t
+          t = allowed_characters.sample
+          #logger.info t
           @passmoji[:chars] += t['moji'].encode('utf-8')
           @passmoji[:imgs] <<  view_context.image_path("emoji/png/#{t['unicode']}.png")
       }
     end
-    logger.info @passmoji
+    #logger.info @passmoji
 
     respond_to do |format|
       format.html
-      format.json { render :json => @passmoji
-      }
+      format.json { render :json => @passmoji }
     end
   end
 
