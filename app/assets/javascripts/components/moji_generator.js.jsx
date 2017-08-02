@@ -44,7 +44,7 @@ class MojiGenerator extends React.Component {
       <div>
         <div className="content has-text-centered is-large">
           <div>
-            Generate a new passmoji with length
+            Generate a new passmoji with length&nbsp;
             <input className="input inlineinput" value={this.state.length} onChange={this.changeLength} name="length" size="3" />
             &nbsp;
             <button className="button is-primary valigninherit" onClick={this.getPassmoji}>Go!</button>
