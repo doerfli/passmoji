@@ -16,6 +16,10 @@
 
 @import "bulma";
 
+body {
+  zoom: 1;
+}
+
 .inlineinput {
   width: auto;
   vertical-align: inherit;
