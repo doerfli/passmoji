@@ -8,6 +8,7 @@ class EmojiController < ApplicationController
     unless params['length'].nil?
       allowed_characters = @moji_index.all.values
       len = (params['length'] || '8').to_i
+      len = 128 if len > 128
       index =
       (0...len).each { |i|
           t = allowed_characters.sample
