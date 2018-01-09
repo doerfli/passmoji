@@ -1,5 +1,11 @@
 class EmojiController < ApplicationController
 
+  before_action :load_moji_from_cache
+
+  def load_moji_from_cache
+    @moji_index = Rails.cache.read(:moji_index)
+  end
+
   def index
     @passmoji = {
       :chars => '',
@@ -9,7 +15,6 @@ class EmojiController < ApplicationController
       allowed_characters = @moji_index.all.values
       len = (params['length'] || '8').to_i
       len = 128 if len > 128
-      index =
       (0...len).each { |i|
           t = allowed_characters.sample
           #logger.info t

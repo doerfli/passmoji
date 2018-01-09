@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :csp_header
 
   def load_moji
-    @moji_index = Gemojione::Index.new
+    unless Rails.cache.exist? :moji_index
+      Rails.cache.write(:moji_index, Gemojione::Index.new)
+      logger.info 'cached moji index'
+    end
   end
 
   def csp_header
