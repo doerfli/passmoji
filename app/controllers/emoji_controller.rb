@@ -13,9 +13,11 @@ class EmojiController < ApplicationController
       :chars => '',
       :imgs => []
     }
-    unless params['length'].nil?
+    unless params[:length].nil? || params[:categories].nil?
+      logger.info params[:categories]
+      # TODO build allowed_characters from categories
       allowed_characters = @moji_index.all.values
-      len = (params['length'] || '8').to_i
+      len = (params[:length] || '8').to_i
       len = 128 if len > 128
       (0...len).each { |i|
           t = allowed_characters.sample

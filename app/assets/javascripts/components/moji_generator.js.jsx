@@ -21,8 +21,9 @@ class MojiGenerator extends React.Component {
 
   getPassmoji = () => {
     // console.log(1);
+    var cq = this.getCategoryQuery();
     var that = this;
-    fetch('/emoji.json?length=' + this.state.length)
+    fetch('/emoji.json?length=' + this.state.length + cq)
       .then(function(response) {
         return response.json();
       }).then(function(json) {
@@ -44,6 +45,15 @@ class MojiGenerator extends React.Component {
     var u = this.state.categories_selected;
     u[idx] = !u[idx];
     this.setState({categories_selected: u});
+  }
+
+  getCategoryQuery = () => {
+    var query = "";
+    for ( var i = 0; i < this.state.categories_selected.length; i++) {
+      if ( ! this.state.categories_selected[i]) continue;
+      query += "&categories[]=" + this.props.categories[i]["value"];
+    }
+    return encodeURI(query);
   }
 
   render() {
