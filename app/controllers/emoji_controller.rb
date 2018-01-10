@@ -15,8 +15,7 @@ class EmojiController < ApplicationController
     }
     unless params[:length].nil? || params[:categories].nil?
       logger.info params[:categories]
-      # TODO build allowed_characters from categories
-      allowed_characters = @moji_index.all.values
+      allowed_characters = params[:categories].map{ |c| @moji_by_category[c]}.flatten
       len = (params[:length] || '8').to_i
       len = 128 if len > 128
       (0...len).each { |i|
