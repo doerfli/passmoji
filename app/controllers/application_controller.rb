@@ -3,10 +3,19 @@ class ApplicationController < ActionController::Base
 
   CATEGORIES_IGNORED = ['extras', 'modifier']
 
-  before_action :load_moji
   before_action :csp_header
+  before_action :init_mojis
+  before_action :load_moji_from_cache
 
-  def load_moji
+  def csp_header
+    @csp_nonce = SecureRandom.hex
+    csp = "default-src 'self';"
+    csp << "script-src 'self' 'nonce-#{@csp_nonce}' www.google-analytics.com;"
+    csp << "img-src 'self' www.google-analytics.com;"
+    response.headers['Content-Security-Policy'] = csp
+  end
+
+  def init_mojis
     unless Rails.cache.exist? :moji_index
       Rails.cache.write(:moji_index, Gemojione::Index.new)
       logger.info 'cached moji index'
@@ -26,11 +35,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def csp_header
-    @csp_nonce = SecureRandom.hex
-    csp = "default-src 'self';"
-    csp << "script-src 'self' 'nonce-#{@csp_nonce}' www.google-analytics.com;"
-    csp << "img-src 'self' www.google-analytics.com;"
-    response.headers['Content-Security-Policy'] = csp
+  def load_moji_from_cache
+    @moji_index = Rails.cache.read(:moji_index)
+    @moji_by_category = Rails.cache.read(:moji_by_category)
   end
+
 end

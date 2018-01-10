@@ -1,14 +1,7 @@
 class EmojiController < ApplicationController
 
-  before_action :load_moji_from_cache
-
-  def load_moji_from_cache
-    @moji_index = Rails.cache.read(:moji_index)
-    @moji_by_category = Rails.cache.read(:moji_by_category)
-  end
-
   def index
-    @moji_categories = @moji_by_category.keys.map{ |c| {:name => c.pluralize.humanize, :value => c}}
+    @moji_categories = @moji_by_category.keys.map{ |c| {:name => c.pluralize.humanize, :value => c}}.sort{ |a,b| a[:name] <=> b[:name] }
     @passmoji = {
       :chars => '',
       :imgs => []
