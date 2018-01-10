@@ -46,7 +46,17 @@ class MojiGenerator extends React.Component {
           <div>
             Generate a new passmoji with length&nbsp;
             <input className="input inlineinput" value={this.state.length} onChange={this.changeLength} name="length" size="3" />
-            &nbsp;
+            {this.props.categories.map(function(cat, i) {
+                return (
+                  <div className="level nomarginbottom">
+                    <div className="control level-item has-text-centered">
+                      <label className="checkbox">
+                        <input type="checkbox" />&nbsp;include {cat.name}
+                      </label>
+                    </div>
+                  </div>
+                );
+            }.bind(this))}
             <button className="button is-primary valigninherit" onClick={this.getPassmoji}>Go!</button>
           </div>
         </div>

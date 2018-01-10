@@ -9,6 +9,18 @@ class ApplicationController < ActionController::Base
       Rails.cache.write(:moji_index, Gemojione::Index.new)
       logger.info 'cached moji index'
     end
+    unless Rails.cache.exist? :moji_categories
+      cache_by_category = {}
+      idx = Gemojione::Index.new
+      idx.all.values.each{ |m|
+        cat = m['category']
+        # logger.info cat
+        cache_by_category[cat] = [] unless cache_by_category.has_key? cat
+        cache_by_category[cat] << m
+      }
+      logger.info "loaded categries #{cache_by_category.keys}"
+      Rails.cache.write(:moji_by_category, cache_by_category)
+    end
   end
 
   def csp_header
