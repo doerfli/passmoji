@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  CATEGORIES_IGNORED = ['extras', 'modifier']
+
   before_action :load_moji
   before_action :csp_header
 
@@ -14,11 +16,12 @@ class ApplicationController < ActionController::Base
       idx = Gemojione::Index.new
       idx.all.values.each{ |m|
         cat = m['category']
+        next if CATEGORIES_IGNORED.include? cat
         # logger.info cat
         cache_by_category[cat] = [] unless cache_by_category.has_key? cat
         cache_by_category[cat] << m
       }
-      logger.info "loaded categries #{cache_by_category.keys}"
+      logger.info "loaded categories #{cache_by_category.keys}"
       Rails.cache.write(:moji_by_category, cache_by_category)
     end
   end
