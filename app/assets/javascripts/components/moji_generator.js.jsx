@@ -2,7 +2,12 @@ class MojiGenerator extends React.Component {
 
   constructor(props) {
     super(props);
+    var cats = [];
+    for(var c in this.props.categories) {
+      cats.push(true);
+    }
     this.state = {
+        categories_selected: cats,
         length: 13,
         passmoji: "",
         passmoji_imgs: []
@@ -33,6 +38,14 @@ class MojiGenerator extends React.Component {
     this.setState({passmoji: passmoji, passmoji_imgs: passmoji_imgs});
   }
 
+  selectCategory = (event) => {
+    var source = event.target;
+    var idx = source.dataset.i;
+    var u = this.state.categories_selected;
+    u[idx] = !u[idx];
+    this.setState({categories_selected: u});
+  }
+
   render() {
     let passmoji;
 
@@ -48,10 +61,10 @@ class MojiGenerator extends React.Component {
             <input className="input inlineinput" value={this.state.length} onChange={this.changeLength} name="length" size="3" />
             {this.props.categories.map(function(cat, i) {
                 return (
-                  <div className="level nomarginbottom">
+                  <div key={i} className="level nomarginbottom">
                     <div className="control level-item has-text-centered">
                       <label className="checkbox">
-                        <input type="checkbox" />&nbsp;include {cat.name}
+                        <input type="checkbox" data-i={i} checked={this.state.categories_selected[i]} onChange={this.selectCategory} />&nbsp;include {cat.name}
                       </label>
                     </div>
                   </div>
