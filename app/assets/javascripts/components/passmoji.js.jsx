@@ -5,7 +5,6 @@ class Passmoji extends React.Component {
   }
 
   componentDidMount() {
-    console.log(1);
     let that = this;
     var clipboard = new Clipboard('.clipboard-btn', {
       text: function (trigger) {

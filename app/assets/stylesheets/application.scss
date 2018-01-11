@@ -30,7 +30,7 @@ body {
 }
 
 .footer {
-  padding: 2rem 1.5rem 2rem;
+  padding: 1rem 1rem 1rem;
 }
 
 .faq_block {
@@ -50,6 +50,22 @@ body {
   width: 32px;
 }
 
+.moji_sample {
+  margin-right: 0.3em !important;
+}
+
+.is_inline {
+  display: inline;
+}
+
 .title img {
   max-height: 1.5em;
+}
+
+.nomarginbottom {
+  margin-bottom: 0em !important;
+}
+
+.nomarginright {
+  margin-right: 0em !important;
 }

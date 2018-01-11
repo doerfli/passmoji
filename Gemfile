@@ -10,9 +10,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
-gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -38,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'gemoji', '~> 3.0'
 gem 'gemojione', '~> 3.3'
-gem "bulma-rails", "~> 0.4.3"
+gem "bulma-rails", "~> 0.6.2"
 gem 'clipboard-rails', '~> 1.7', '>= 1.7.1'
 gem 'react-rails', '~> 2.2', '>= 2.2.1'
 gem 'fetch-rails', '~> 2.0', '>= 2.0.1'
