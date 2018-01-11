@@ -110,8 +110,9 @@ class MojiGenerator extends React.Component {
                           <span className="level-item is-narrow nomarginright">
                             (
                           </span>
-                            {cat.sample.map(function(url, i) {
-                              return (<img src={url} className="level-item image is-16x16 is-narrow moji_sample"/>);
+                            {cat.sample.map(function(url, j) {
+                              var k = "si" + i + "-" + j;
+                              return (<img src={url} key={k} className="level-item image is-16x16 is-narrow moji_sample"/>);
                             }.bind(this))}&hellip;
                           <span className="level-item is-narrow">
                             )
