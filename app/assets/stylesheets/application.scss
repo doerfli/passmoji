@@ -50,6 +50,10 @@ body {
   width: 32px;
 }
 
+.moji_sample {
+  margin-right: 0.3em !important;
+}
+
 .is_inline {
   display: inline;
 }
@@ -60,4 +64,8 @@ body {
 
 .nomarginbottom {
   margin-bottom: 0em !important;
+}
+
+.nomarginright {
+  margin-right: 0em !important;
 }

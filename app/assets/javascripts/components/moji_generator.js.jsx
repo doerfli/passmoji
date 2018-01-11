@@ -98,16 +98,25 @@ class MojiGenerator extends React.Component {
                 </div>
                 {this.props.categories.map(function(cat, i) {
                     return (
-                      <div key={i} className="control is-left">
-                        <label className="checkbox">
-                          <input type="checkbox" data-i={i} checked={this.state.categories_selected[i]} onChange={this.selectCategory} />
-                          &nbsp;{cat.name}&nbsp;
-                          (<span className="level is_inline">
-                          {cat.sample.map(function(url, i) {
-                            return (<span><img src={url} className="level-item image is-16x16 is_inline is-narrow"/>, </span>);
-                          }.bind(this))}&hellip;
-                          </span>)
-                        </label>
+                      <div key={i} className="control is-left level nomarginbottom">
+                        <span className="level-left">
+                          <span className="level-item is-narrow">
+                            <label className="checkbox">
+                              <input type="checkbox" data-i={i} checked={this.state.categories_selected[i]} onChange={this.selectCategory} />
+                              &nbsp;{cat.name}&nbsp;
+
+                            </label>
+                          </span>
+                          <span className="level-item is-narrow nomarginright">
+                            (
+                          </span>
+                            {cat.sample.map(function(url, i) {
+                              return (<img src={url} className="level-item image is-16x16 is-narrow moji_sample"/>);
+                            }.bind(this))}&hellip;
+                          <span className="level-item is-narrow">
+                            )
+                          </span>
+                        </span>
                       </div>
                     );
                 }.bind(this))}
