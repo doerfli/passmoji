@@ -100,7 +100,13 @@ class MojiGenerator extends React.Component {
                     return (
                       <div key={i} className="control is-left">
                         <label className="checkbox">
-                          <input type="checkbox" data-i={i} checked={this.state.categories_selected[i]} onChange={this.selectCategory} />&nbsp;{cat.name}
+                          <input type="checkbox" data-i={i} checked={this.state.categories_selected[i]} onChange={this.selectCategory} />
+                          &nbsp;{cat.name}&nbsp;
+                          (<span className="level is_inline">
+                          {cat.sample.map(function(url, i) {
+                            return (<span><img src={url} className="level-item image is-16x16 is_inline is-narrow"/>, </span>);
+                          }.bind(this))}&hellip;
+                          </span>)
                         </label>
                       </div>
                     );
