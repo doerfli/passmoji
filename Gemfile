@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'gemoji', '~> 3.0'
 gem 'gemojione', '~> 3.3'
-gem "bulma-rails", "~> 0.4.3"
+gem "bulma-rails", "~> 0.6.2"
 gem 'clipboard-rails', '~> 1.7', '>= 1.7.1'
 gem 'react-rails', '~> 2.2', '>= 2.2.1'
 gem 'fetch-rails', '~> 2.0', '>= 2.0.1'

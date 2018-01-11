@@ -86,24 +86,27 @@ class MojiGenerator extends React.Component {
           <div>
             Generate a new passmoji with length&nbsp;
             <input className="input inlineinput" value={this.state.length} onChange={this.changeLength} name="length" size="3" />
-            <div className="level nomarginbottom">
-              <div className="control level-item has-text-centered">
-                <label className="checkbox">
-                  <input type="checkbox" checked={this.isAllCategoriesSelected()} onChange={this.selectAllCategories} />&nbsp;include all categories
-                </label>
+            <div className="columns">
+              <div className="column is-2 is-offset-4 is-size-6">
+                and including categories
+              </div>
+              <div className="column is-3">
+                <div className="control is-left">
+                  <label className="checkbox">
+                    <input type="checkbox" checked={this.isAllCategoriesSelected()} onChange={this.selectAllCategories} />&nbsp;<b>all</b>
+                  </label>
+                </div>
+                {this.props.categories.map(function(cat, i) {
+                    return (
+                      <div key={i} className="control is-left">
+                        <label className="checkbox">
+                          <input type="checkbox" data-i={i} checked={this.state.categories_selected[i]} onChange={this.selectCategory} />&nbsp;{cat.name}
+                        </label>
+                      </div>
+                    );
+                }.bind(this))}
               </div>
             </div>
-            {this.props.categories.map(function(cat, i) {
-                return (
-                  <div key={i} className="level nomarginbottom">
-                    <div className="control level-item has-text-centered">
-                      <label className="checkbox">
-                        <input type="checkbox" data-i={i} checked={this.state.categories_selected[i]} onChange={this.selectCategory} />&nbsp;{cat.name}
-                      </label>
-                    </div>
-                  </div>
-                );
-            }.bind(this))}
             <button className="button is-primary valigninherit" onClick={this.getPassmoji}>Go!</button>
           </div>
         </div>
