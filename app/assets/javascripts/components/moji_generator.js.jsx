@@ -83,18 +83,28 @@ class MojiGenerator extends React.Component {
     return (
       <div>
         <div className="content has-text-centered is-large">
-          <div>
-            Generate a new passmoji with length&nbsp;
-            <input className="input inlineinput" value={this.state.length} onChange={this.changeLength} name="length" size="3" />
-            <div className="columns">
+            <div className="columns nomarginbottom is-multiline ">
+              <div className="column is-5 is-offset-4">
+                <span className="is-pulled-left">
+                  Generate a new passmoji with length&nbsp;
+                  <input className="input inlineinput" value={this.state.length} onChange={this.changeLength} name="length" size="3" />
+                </span>
+              </div>
               <div className="column is-2 is-offset-4 is-size-6">
-                and including categories
+                <span className="is-pulled-left">
+                  and including categories
+                </span>
               </div>
               <div className="column is-3">
-                <div className="control is-left">
-                  <label className="checkbox">
-                    <input type="checkbox" checked={this.isAllCategoriesSelected()} onChange={this.selectAllCategories} />&nbsp;<b>all</b>
-                  </label>
+                <div className="control level nomarginbottom">
+                  <span className="level-left">
+                    <span className="level-item is-narrow">
+                      <label className="checkbox">
+                        <input type="checkbox" checked={this.isAllCategoriesSelected()} onChange={this.selectAllCategories} />
+                        &nbsp;<b>all</b>
+                      </label>
+                    </span>
+                  </span>
                 </div>
                 {this.props.categories.map(function(cat, i) {
                     return (
@@ -104,7 +114,6 @@ class MojiGenerator extends React.Component {
                             <label className="checkbox">
                               <input type="checkbox" data-i={i} checked={this.state.categories_selected[i]} onChange={this.selectCategory} />
                               &nbsp;{cat.name}&nbsp;
-
                             </label>
                           </span>
                           <span className="level-item is-narrow nomarginright">
@@ -121,9 +130,11 @@ class MojiGenerator extends React.Component {
                       </div>
                     );
                 }.bind(this))}
-              </div>
+                <span className="is-pulled-left">
+                  <button className="button is-primary valigninherit" onClick={this.getPassmoji}>Go!</button>
+                </span>
             </div>
-            <button className="button is-primary valigninherit" onClick={this.getPassmoji}>Go!</button>
+
           </div>
         </div>
         <div>

@@ -69,3 +69,10 @@ body {
 .nomarginright {
   margin-right: 0em !important;
 }
+
+// no break for categories on mobile
+@media screen and (max-width: 768px) {
+  span.level-item {
+    display: inline;
+  }
+}
